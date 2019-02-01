@@ -1,0 +1,24 @@
+.map_neighbourhood_name {
+  font-family: Calibri;
+  color: black;
+  font-size: 20px;
+}
+.map_neighbourhood {
+    fill: #6fe79a;
+    stroke: #999999;
+    stroke-width: 0.5px;
+}
+.map_neighbourhood:hover {
+    fill: #ffff9a;
+    cursor: pointer;
+}
+#legend-svg {
+    vertical-align: top;
+    padding-top: 10px;
+}
+#main-svg {
+    margin-left: 10px;
+    margin-right: auto;
+    width: 800px;
+    padding-top: 10px;
+}
