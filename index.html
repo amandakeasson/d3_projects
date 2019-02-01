@@ -1,22 +1,63 @@
 <!DOCTYPE html>
-  <html>
-  <head>
-    <meta charset="utf-8">
-    <title>knowTO</title>
-    <link rel="stylesheet" type="text/css" href="css/d3_map_toronto.css"></link>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/topojson.v1.min.js"></script>
-    <script src="https://d3js.org/d3-scale.v2.min.js"></script>
-    <script src="https://d3js.org/d3-color.v1.min.js"></script>
-    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  </head>
-  <body>
+<html>
+<head>
+<title> neurocollab database </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <meta charset='utf-8' -->
+<link rel="stylesheet" href="css/custom_style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-dark-grey w3-card-2 w3-left">
+      <a href="#search" class="w3-left w3-bar-item w3-button w3-padding-large w3-hover-black">Search</a>
+      <a href="submit.html" class=" w3-left w3-bar-item w3-button w3-block w3-padding-large w3-hover-black">Submit</a>
+  </div>
+</div>
+
+
+<br />
+<br />
+
+<h2 class="w3-container" "w3-padding-32" "w3-left">neurocollab projects</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="https://github.com/amandakeasson/tvb_nipype">tvb_nipype
   <br />
-  <div class="titleFormat"></div>
-  <select id="ddtest"></select>
-    <div id="main-svg"></div>
-    <div id="legend-svg"></div>
-  </body>
-    <script type="text/javascript" src="js/d3_map_toronto_data_leg.js"></script>
+  <button>test_button</button> 
+  <button>multivariate statistics</button></a>
+  </li>
+  <li><a href="https://github.com/amandakeasson/plsviz">plsviz</a></li>
+  <li><a href="https://github.com/amandakeasson/neurocollab">neurocollab</a></li>
+  <li><a href="https://github.com/amandakeasson/excellent-science">excellent-science</a></li>
+  <li><a href="https://github.com/amandakeasson/tvb_tutorials">tvb_tutorials</a></li>
+</ul>
+
+</header>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
 </html>
