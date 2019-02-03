@@ -20,11 +20,13 @@ d3.csv("WB-Economics.csv", function(data) {
                          updateGraph(data_selected);
                   };
 
-  var dropdown = d3.select("#ddtest")
+  var dropdown = d3.select("#main-svg")
+      .append("select")
       .style("margin-left", "10px")
       .style("margin-top", "0px")
-      .style("font-family", "Calibri")
+      .style("font-family", "Quicksand")
       .style("font-size", "14px")
+      .style("color", "white")
       .on("change", dropdownChange)
       .selectAll("option")
       .data(datavars)
@@ -169,7 +171,8 @@ d3.csv("WB-Economics.csv", function(data) {
       legSvg.append("g")
           .attr("class", "legend axis")
           .attr("transform", "translate(" + legWidth + ", 0)")
-          .call(legAxis);
+          .call(legAxis)
+          .attr("class","legformat")
 
       function updateFill(selection, data_selected, color) {
         selection.transition().duration(0)
@@ -181,6 +184,7 @@ d3.csv("WB-Economics.csv", function(data) {
 
       function mouseover(d) {
         mapLabel.text(d.properties.name.slice(0,-5))
+          .style("fill","#ffffff")
         div.transition()
            .duration(0)
            .style("opacity", .9)
@@ -192,7 +196,8 @@ d3.csv("WB-Economics.csv", function(data) {
            .style("width", "50px")
            .style("height", "12px")
            .style("padding","2px")
-           .style("font", "12px sans-serif")
+           .style("font-family","Quicksand")
+           .style("font-size", "12px")
            .style("background", "white")
            .style("border", "0px")
            .style("border-radius", "8px")
