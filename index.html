@@ -12,11 +12,17 @@
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   </head>
   <body>
-  <br />
-  <div class="titleFormat"></div>
+  <div id="source-text"><p style="font-size:20px"><b>Toronto in 2011</b></p></div>
   <select id="ddtest"></select>
     <div id="main-svg"></div>
     <div id="legend-svg"></div>
+    <div id="source-text">
+      <p>
+        <b><u>Sources:</u></b><br>
+        <b>Data: </b> <a href="https://www.toronto.ca/city-government/data-research-maps/open-data/" target="_blank">City of Toronto Open Data</a><br>
+        <b>Topojson: </b> <a href="https://github.com/jasonicarter/toronto-geojson/blob/master/toronto_topo.json" target="_blank">Github: jasonicarter</a>
+      </p>
+    </div>
   </body>
     <script type="text/javascript" src="js/d3_map_toronto_data_leg.js"></script>
 </html>
