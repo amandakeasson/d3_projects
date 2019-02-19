@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <title>knowTO</title>
+    <link rel="stylesheet" type="text/css" href="css/d3_map_toronto.css"></link>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale.v2.min.js"></script>
+    <script src="https://d3js.org/d3-color.v1.min.js"></script>
+    <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  </head>
+  <body>
+  <div id="source-text"><p style="font-size:24px"><b>Toronto in 2011</b></p></div>
+  <div id="main-svg"></div>
+  <div id="source-text">
+      <p>
+        <b><u>Sources:</u></b><br>
+        <b>Data: </b> <a href="https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-licence/" target="_blank" style="color:#ffffff">City of Toronto Open Data</a><br>
+        <b>Topojson: </b> <a href="https://github.com/jasonicarter/toronto-geojson/blob/master/toronto_topo.json" target="_blank" style="color:#ffffff">Github: jasonicarter</a>
+      </p>
+    </div>
+  </body>
+    <script type="text/javascript" src="js/d3_map_toronto_data_leg.js"></script>
+</html>

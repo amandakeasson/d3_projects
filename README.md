@@ -1,4 +1,10 @@
-# <b> knowTO </b>
+# <b> d3_projects </b>
+
+A series of personal projects I've worked on while learning d3.js.
+
+
+
+## <b>mapTO</b>
 
 A series of maps showing information about Toronto's neighbourhoods.
 
