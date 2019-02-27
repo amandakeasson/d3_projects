@@ -17,4 +17,4 @@ Toronto topojson: [https://github.com/jasonicarter/toronto-geojson/blob/master/t
 
 ## <b>runviz</b>
 
-A project for visualizing running data from Garmin &reg.
+A project for visualizing running data from Garmin &reg;.
