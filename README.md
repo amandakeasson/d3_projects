@@ -13,3 +13,8 @@ A series of maps showing information about Toronto's neighbourhoods.
 Data: [City of Toronto Open Data](https://www.toronto.ca/city-government/data-research-maps/open-data/)
 
 Toronto topojson: [https://github.com/jasonicarter/toronto-geojson/blob/master/toronto_topo.json](https://github.com/jasonicarter/toronto-geojson/blob/master/toronto_topo.json)
+
+
+## <b>runviz</b>
+
+A project for visualizing running data from Garmin &reg.
