@@ -13,8 +13,3 @@ Follow these steps:
 4) Move the Activities.csv folder into the viz_garmin directory.
 
 
-<b> SOURCES: </b>
-
-Data: [City of Toronto Open Data](https://www.toronto.ca/city-government/data-research-maps/open-data/)
-
-Toronto topojson: [https://github.com/jasonicarter/toronto-geojson/blob/master/toronto_topo.json](https://github.com/jasonicarter/toronto-geojson/blob/master/toronto_topo.json)
