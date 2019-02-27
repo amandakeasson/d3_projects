@@ -1,0 +1,53 @@
+#container {
+  margin: 0;
+  position: relative;
+}
+#chart {
+    font-family: "Roboto";
+  	margin-left: 20px;
+    float: left;
+    position: absolute;
+}
+#ddmenu {
+  font-family: "Roboto";
+  font-size: 14px;
+  float: left;
+  position: absolute;
+  margin-left: 650px;
+}
+
+#legend {
+  font-family: "Roboto";
+  font-size: 14px;
+  float: left;
+  position: absolute;
+  margin-left: 650px;
+  fill-opacity: 0.8;
+}
+
+#source-text {
+  font-family: "Roboto";
+  margin-left: 20px;
+}
+
+#mouse-text {
+  font-family: "Roboto";
+  font-size: 12px;
+  position: absolute;
+  text-align: center;
+  padding: 5px;
+  background: #efefef;
+  border: 5px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.dot {
+  stroke: #000;
+  fill-opacity: 0.8;
+}
+
+.axis path, .axis line {
+    shape-rendering: crispEdges;
+    font-family: "Roboto";
+}
