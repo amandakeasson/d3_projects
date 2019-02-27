@@ -10,6 +10,6 @@ Follow these steps:
 
 3) Download your Activities.csv file for your running data.
 
-4) Move the Activities.csv folder into the viz_garmin directory.
+4) Move the Activities.csv file into the `runviz` directory.
 
 
