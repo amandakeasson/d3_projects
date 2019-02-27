@@ -4,7 +4,7 @@ This project allows you to visualize your Garmin&reg; activity data.
 
 Follow these steps:
 
-1) Clone this repository: `git clone https://github.com/amandakeasson/d3_projects/viz_garmin`
+1) Clone this repository: `git clone https://github.com/amandakeasson/d3_projects/runviz`
 
 2) <a href="https://connect.garmin.com/en-US/signin">Log in</a> to your Garmin connect account.  
 
