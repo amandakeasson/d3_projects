@@ -5,9 +5,9 @@
 // linspace function: https://gist.github.com/davebiagioni/1ac21feb1c2db04be4e6
 // legend help: https://bl.ocks.org/starcalibre/6cccfa843ed254aa0a0d
 
-d3.csv("toronto_compiled_short.csv", function(data) {
+d3.csv("toronto_normalized.csv", function(data) {
 
-  updateGraph('Businesses');
+  updateGraph('Aftertax_income_Average_amount_');
 
   var datacols = d3.values(data)[0];
   var datavars = Object.keys(datacols)
