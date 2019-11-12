@@ -5,7 +5,7 @@
 // linspace function: https://gist.github.com/davebiagioni/1ac21feb1c2db04be4e6
 // legend help: https://bl.ocks.org/starcalibre/6cccfa843ed254aa0a0d
 
-d3.csv("toronto_normalized.csv", function(data) {
+d3.csv("toronto_compiled_short_d3.csv", function(data) {
 
   updateGraph('Aftertax_income_Average_amount_');
 
