@@ -1,0 +1,14 @@
+{
+  "name": "1640f0aa65e51ed0",
+  "main": "1640f0aa65e51ed0@3009.js",
+  "version": "3009.0.0",
+  "homepage": "https://observablehq.com/d/1640f0aa65e51ed0",
+  "author": {
+    "name": "Amanda",
+    "url": "https://observablehq.com/@amandakeasson"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
