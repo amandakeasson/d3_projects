@@ -2,7 +2,7 @@
 // bar chart race:
 // real estate data: https://toronto.listing.ca/real-estate-price-history.htm
 
-data = d3.csvParse(await FileAttachment("toronto_real_estate.csv").text(), d3.autoType)
+data = d3.csvParse(await FileAttachment("toronto_real_estate_d3.csv").text(), d3.autoType)
 
 chart = {
   replay;
