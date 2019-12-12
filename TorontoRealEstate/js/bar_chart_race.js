@@ -1,11 +1,10 @@
 
 // Feel free to change or delete any of the code you see in this editor!
-var svg = d3.select("body").append("svg")
+var svg = d3.select("#main-svg").append("svg")
   .attr("width", 960)
   .attr("height", 600);
 
 var tickDuration = 500;
-
 var top_n = 12;
 var height = 600;
 var width = 960;
@@ -22,7 +21,7 @@ let barPadding = (height-(margin.bottom+margin.top))/(top_n*5);
 let title = svg.append('text')
  .attr('class', 'title')
  .attr('y', 24)
- .html('18 years of Interbrand’s Top Global Brands');
+ .html('Toronto Real Estate Trends');
 
 let subTitle = svg.append("text")
  .attr("class", "subTitle")
@@ -36,12 +35,11 @@ let caption = svg.append('text')
  .style('text-anchor', 'end')
  .html('Source: listings.ca');
 
- let year = 2009;
+ let year = 1;
 
-d3.csv('toronto_real_estate_d3.csv').then(function(data) {
+d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
+//d3.csv('brand_values.csv').then(function(data) {
 //if (error) throw error;
-
-  console.log(data);
 
    data.forEach(d => {
     d.value = +d.value,
@@ -51,15 +49,11 @@ d3.csv('toronto_real_estate_d3.csv').then(function(data) {
     d.colour = d3.hsl(Math.random()*360,0.75,0.75)
   });
 
- console.log(data);
-
  let yearSlice = data.filter(d => d.year == year && !isNaN(d.value))
   .sort((a,b) => b.value - a.value)
   .slice(0, top_n);
 
   yearSlice.forEach((d,i) => d.rank = i);
-
- console.log('yearSlice: ', yearSlice)
 
  let x = d3.scaleLinear()
     .domain([0, d3.max(yearSlice, d => d.value)])
@@ -241,8 +235,9 @@ let ticker = d3.interval(e => {
 
   yearText.html(~~year);
 
- if(year == 2018) ticker.stop();
- year = d3.format('.1f')((+year) + 0.1);
+ if(year == 131) ticker.stop();
+ year = d3.format('.0f')((+year) + 1);
+ console.log(year)
 },tickDuration);
 });
 
