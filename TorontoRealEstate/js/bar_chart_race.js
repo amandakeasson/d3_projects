@@ -4,7 +4,7 @@
 var tickDuration = 500;
 var top_n = 10;
 var height = 600;
-var width = 960;
+var width = 1200;
 
 var svg = d3.select("#main-svg").append("svg")
   .attr("width", width)
@@ -12,9 +12,9 @@ var svg = d3.select("#main-svg").append("svg")
 
 const margin = {
   top: 90,
-  right: 0,
+  right: 50,
   bottom: 5,
-  left: 0
+  left: 10
 };
 
 let barPadding = (height-(margin.bottom+margin.top))/(top_n*5);
@@ -22,6 +22,7 @@ let barPadding = (height-(margin.bottom+margin.top))/(top_n*5);
 let subTitle = svg.append("text")
  .attr("class", "subTitle")
  .attr("y", 65)
+ .attr("x", 10)
  .html("Property value, $");
 
  let year = 1;
@@ -41,15 +42,13 @@ d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
   var colScale = d3.scaleOrdinal() //(d3.schemeTableau10)
     .range(["#ff0000","#ff5599","#005500","#00bb00","#0000ff","#33aaff",
           "#7700aa","#c8a2ff","#cc5500","#ffa500"])
-    //.range([d3.rgb("#007AFF"), d3.rgb('#FFF500')])
     .domain(map1)
 
    data.forEach(d => {
     d.value = +d.value,
     d.lastValue = +d.lastValue,
     d.value = isNaN(d.value) ? 0 : d.value,
-    d.year = +d.year,
-    d.colour = d3.hsl(Math.random()*360,0.75,0.75)
+    d.year = +d.year;
   });
 
  let yearSlice = data.filter(d => d.year == year && !isNaN(d.value))
@@ -113,12 +112,11 @@ svg.selectAll('text.valueLabel')
 
 let yearText = svg.append('text')
   .attr('class', 'yearText')
-  //.attr('x', 30)
   .attr('y', 25)
+  .attr('x', 10)
   //.style('text-anchor', 'end')
   .style('font-size',26)
   .text(yearSlice[0]['date'])
-  //.call(halo, 10);
 
 let ticker = d3.interval(e => {
 
