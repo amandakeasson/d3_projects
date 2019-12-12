@@ -106,12 +106,15 @@ svg.selectAll('text.valueLabel')
   .attr('y', d => y(d.rank)+5+((y(1)-y(0))/2)+1)
   .text(d => d3.format(',.0f')(d.lastValue));
 
+  //var date = yearSlice[0]['date']
+
 let yearText = svg.append('text')
   .attr('class', 'yearText')
   .attr('x', width-margin.right)
   .attr('y', height-25)
   .style('text-anchor', 'end')
-  .html(~~year)
+  //.html(~~date)
+  .text(yearSlice[0]['date'])
   .call(halo, 10);
 
 let ticker = d3.interval(e => {
@@ -121,8 +124,6 @@ let ticker = d3.interval(e => {
     .slice(0,top_n);
 
   yearSlice.forEach((d,i) => d.rank = i);
-
-  //console.log('IntervalYear: ', yearSlice);
 
   x.domain([0, d3.max(yearSlice, d => d.value)]);
 
@@ -233,11 +234,11 @@ let ticker = d3.interval(e => {
       .attr('y', d => y(top_n+1)+5)
       .remove();
 
-  yearText.html(~~year);
+  //yearText.html(~~date);
+  yearText.text(yearSlice[0]['date'])
 
  if(year == 131) ticker.stop();
  year = d3.format('.0f')((+year) + 1);
- console.log(year)
 },tickDuration);
 });
 
