@@ -1,6 +1,9 @@
+
 html, body {
   background: #000;
   font-family: "Quicksand";
+  color: "white";
+  fill: "white";
 }
 .map_neighbourhood_name {
   font-family: "Quicksand";
@@ -17,11 +20,12 @@ html, body {
     cursor: pointer;
 }
 #main-svg {
-    margin-left: 0px;
+    margin-left: 10px;
     margin-right: auto;
     width: 800px;
     font-family: 'Quicksand';
     fill: white;
+    color: white;
 }
 #source-text {
   font-family: 'Quicksand';
@@ -29,13 +33,4 @@ html, body {
   color: #ffffff;
   font-size: 10px;
   margin-left: 10px;
-}
-.legformat text {
-  fill: white;
-}
-.legformat path {
-  stroke: white;
-}
-.legformat line {
-  stroke: white;
 }

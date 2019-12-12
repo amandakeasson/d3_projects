@@ -1,16 +1,17 @@
-
-// Feel free to change or delete any of the code you see in this editor!
-var svg = d3.select("#main-svg").append("svg")
-  .attr("width", 960)
-  .attr("height", 600);
+// modified from Joel Zief's Block:
+// https://bl.ocks.org/jrzief/70f1f8a5d066a286da3a1e699823470f
 
 var tickDuration = 500;
-var top_n = 12;
+var top_n = 10;
 var height = 600;
 var width = 960;
 
+var svg = d3.select("#main-svg").append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
 const margin = {
-  top: 80,
+  top: 90,
   right: 0,
   bottom: 5,
   left: 0
@@ -18,28 +19,30 @@ const margin = {
 
 let barPadding = (height-(margin.bottom+margin.top))/(top_n*5);
 
-let title = svg.append('text')
- .attr('class', 'title')
- .attr('y', 24)
- .html('Toronto Real Estate Trends');
-
 let subTitle = svg.append("text")
  .attr("class", "subTitle")
- .attr("y", 55)
+ .attr("y", 65)
  .html("Property value, $");
-
-let caption = svg.append('text')
- .attr('class', 'caption')
- .attr('x', width)
- .attr('y', height-5)
- .style('text-anchor', 'end')
- .html('Source: listings.ca');
 
  let year = 1;
 
 d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
-//d3.csv('brand_values.csv').then(function(data) {
-//if (error) throw error;
+
+  var map2 = data.map(d => d.name)
+
+  var objArr=[{label:"overall_ask"},{label:"overall_sold"},
+              {label:"condos_ask"},{label:"condos_sold"},
+              {label:"condoTown_ask"},{label:"condoTown_sold"},
+              {label:"freeTown_ask"},{label:"freeTown_sold"},
+              {label:"detached_ask"},{label:"detached_sold"}];
+  map1 = objArr.map(d => d.label)
+  console.log(map1)
+
+  var colScale = d3.scaleOrdinal() //(d3.schemeTableau10)
+    .range(["#ff0000","#ff5599","#005500","#00bb00","#0000ff","#33aaff",
+          "#7700aa","#c8a2ff","#cc5500","#ffa500"])
+    //.range([d3.rgb("#007AFF"), d3.rgb('#FFF500')])
+    .domain(map1)
 
    data.forEach(d => {
     d.value = +d.value,
@@ -85,7 +88,7 @@ d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
     .attr('width', d => x(d.value)-x(0)-1)
     .attr('y', d => y(d.rank)+5)
     .attr('height', y(1)-y(0)-barPadding)
-    .style('fill', d => d.colour);
+    .style('fill', d => colScale(d.name));
 
  svg.selectAll('text.label')
     .data(yearSlice, d => d.name)
@@ -110,12 +113,12 @@ svg.selectAll('text.valueLabel')
 
 let yearText = svg.append('text')
   .attr('class', 'yearText')
-  .attr('x', width-margin.right)
-  .attr('y', height-25)
-  .style('text-anchor', 'end')
-  //.html(~~date)
+  //.attr('x', 30)
+  .attr('y', 25)
+  //.style('text-anchor', 'end')
+  .style('font-size',26)
   .text(yearSlice[0]['date'])
-  .call(halo, 10);
+  //.call(halo, 10);
 
 let ticker = d3.interval(e => {
 
@@ -143,7 +146,7 @@ let ticker = d3.interval(e => {
     .attr( 'width', d => x(d.value)-x(0)-1)
     .attr('y', d => y(top_n+1)+5)
     .attr('height', y(1)-y(0)-barPadding)
-    .style('fill', d => d.colour)
+    .style('fill', d => colScale(d.name))
     .transition()
       .duration(tickDuration)
       .ease(d3.easeLinear)
@@ -241,12 +244,3 @@ let ticker = d3.interval(e => {
  year = d3.format('.0f')((+year) + 1);
 },tickDuration);
 });
-
-const halo = function(text, strokeWidth) {
-text.select(function() { return this.parentNode.insertBefore(this.cloneNode(true), this); })
-.style('fill', '#ffffff')
- .style( 'stroke','#ffffff')
- .style('stroke-width', strokeWidth)
- .style('stroke-linejoin', 'round')
- .style('opacity', 1);
-}
