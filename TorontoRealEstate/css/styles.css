@@ -2,38 +2,16 @@
 html, body {
   background: #000;
   font-family: "Quicksand";
-  color: "white";
-  fill: "white";
-}
-.map_neighbourhood_name {
-  font-family: "Quicksand";
-  color: "white";
-  font-size: 18px;
-}
-.map_neighbourhood {
-    fill: #6fe79a;
-    stroke: #999999;
-    stroke-width: 0.5px;
-}
-.map_neighbourhood:hover {
-    fill: #ffff9a;
-    cursor: pointer;
+  color: white;
 }
 #main-svg {
     margin-left: 10px;
     margin-right: auto;
-    width: 800px;
     font-family: 'Quicksand';
     fill: white;
-    color: white;
 }
 #source-text {
   font-family: 'Quicksand';
-  font-weight: 300;
-  color: #ffffff;
-  font-size: 10px;
-  margin-left: 10px;
-}
-.to_title {
-  margin-left: 10px;
+  font-size: 20px;
+  margin-left: 20px;
 }

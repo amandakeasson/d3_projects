@@ -37,7 +37,6 @@ d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
               {label:"freeTown_ask"},{label:"freeTown_sold"},
               {label:"detached_ask"},{label:"detached_sold"}];
   map1 = objArr.map(d => d.label)
-  console.log(map1)
 
   var colScale = d3.scaleOrdinal() //(d3.schemeTableau10)
     .range(["#ff0000","#ff5599","#005500","#00bb00","#0000ff","#33aaff",
