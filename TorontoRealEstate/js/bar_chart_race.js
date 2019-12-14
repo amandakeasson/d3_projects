@@ -36,7 +36,8 @@ d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
               {label:"condoTown_ask"},{label:"condoTown_sold"},
               {label:"freeTown_ask"},{label:"freeTown_sold"},
               {label:"detached_ask"},{label:"detached_sold"}];
-  map1 = objArr.map(d => d.label)
+
+  var map1 = objArr.map(d => d.label)
 
   var colScale = d3.scaleOrdinal() //(d3.schemeTableau10)
     .range(["#ff0000","#ff5599","#005500","#00bb00","#0000ff","#33aaff",
@@ -46,11 +47,10 @@ d3.csv('toronto_real_estate_d3_formatted.csv').then(function(data) {
    data.forEach(d => {
     d.value = +d.value,
     d.lastValue = +d.lastValue,
-    d.value = isNaN(d.value) ? 0 : d.value,
     d.year = +d.year;
   });
 
- let yearSlice = data.filter(d => d.year == year && !isNaN(d.value))
+ let yearSlice = data.filter(d => d.year == year)
   .sort((a,b) => b.value - a.value)
   .slice(0, top_n);
 
@@ -119,7 +119,7 @@ let yearText = svg.append('text')
 
 let ticker = d3.interval(e => {
 
-  yearSlice = data.filter(d => d.year == year && !isNaN(d.value))
+  yearSlice = data.filter(d => d.year)
     .sort((a,b) => b.value - a.value)
     .slice(0,top_n);
 
@@ -180,7 +180,6 @@ let ticker = d3.interval(e => {
       .duration(tickDuration)
       .ease(d3.easeLinear)
       .attr('y', d => y(d.rank)+5+((y(1)-y(0))/2)+1);
-
 
 	   labels
       .transition()
